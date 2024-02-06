@@ -2,6 +2,7 @@ body {
   margin: 0;
   display: flex;
   align-items: center;
+  width: fit-content;
 }
 
 #question-container {
@@ -29,6 +30,17 @@ button {
 }
 
 #no-container {
+  display: none;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 100%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  transition: opacity 1s ease-out;
+}
+
+#yes-container {
   display: none;
   position: absolute;
   left: 50%;
