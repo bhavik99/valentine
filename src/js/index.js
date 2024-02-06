@@ -6,7 +6,7 @@ counter = 0
 
 document.addEventListener("DOMContentLoaded", function () {
   const questionContainer = document.getElementById("question-container");
-  const warningContainer = document.getElementById("warning-container");
+  const warningContainer = document.getElementById("no-container");
   const happyContainer = document.getElementById("happy-container");
   const noButton = document.getElementById("no-button");
 
@@ -21,7 +21,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     if (counter % 10 == 0){
       $("#question-container").fadeOut('fast').delay(5000);
-      $("#warning-container").fadeIn('slow').animate({left: '250px'});;
+      $("#no-container").fadeIn('slow').animate({left: '250px'});;
     }
 
     console.log(counter)

@@ -28,7 +28,7 @@ button {
   position: relative;
 }
 
-#warning-container {
+#no-container {
   display: none;
   position: absolute;
   left: 50%;
