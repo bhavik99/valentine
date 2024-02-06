@@ -5,6 +5,13 @@ const getRandomNumber = (num) => {
   return val;
 };
 
+function addListenerMulti(element, eventNames, listener) {
+  var events = eventNames.split(' ');
+  for (var i=0, iLen=events.length; i<iLen; i++) {
+    element.addEventListener(events[i], listener, false);
+  }
+}
+
 let counter = 0
 const countdownDate = new Date("February 17, 2024 00:00:00").getTime();
 
@@ -14,7 +21,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const tryAgainButton = document.getElementById("try-again-button");
   const yesButton = document.getElementById("yes-button");
 
-  noButton.addEventListener("mouseover", function () {
+  addListenerMulti(noButton, 'mouseover click', function () {
     const top = getRandomNumber((questionContainer.offsetHeight - noButton.offsetHeight) * 0.3);
     const left = getRandomNumber((questionContainer.offsetWidth - noButton.offsetWidth) * 0.3);
 
