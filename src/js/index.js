@@ -1,3 +1,5 @@
+const sleep = (delay) => new Promise((resolve) => setTimeout(resolve, delay))
+
 const getRandomNumber = (num) => {
   const ranNum = Math.random();
   const posNeg = ranNum < 0.5 ? -ranNum : ranNum;
@@ -16,21 +18,32 @@ let counter = 0
 const countdownDate = new Date("February 17, 2024 00:00:00").getTime();
 
 document.addEventListener("DOMContentLoaded", function () {
+  const body = document.body
   const questionContainer = document.getElementById("question-container");
   const noButton = document.getElementById("no-button");
   const tryAgainButton = document.getElementById("try-again-button");
   const yesButton = document.getElementById("yes-button");
 
   addListenerMulti(noButton, 'mouseover click', function () {
-    const top = getRandomNumber((questionContainer.offsetHeight - noButton.offsetHeight) * 0.3);
-    const left = getRandomNumber((questionContainer.offsetWidth - noButton.offsetWidth) * 0.3);
+    let top = getRandomNumber((window.innerHeight - questionContainer.offsetHeight) * 0.5);
+    if (parseInt(noButton.style.top.split("px")[0]) < 0){
+      top = Math.abs(top)
+    } else {
+      top = -Math.abs(top)
+    }
+    let left = getRandomNumber((window.innerWidth - questionContainer.offsetWidth) * 0.5);
+    if (parseInt(noButton.style.left.split("px")[0]) < 0){
+      left = Math.abs(left)
+    } else {
+      left = -Math.abs(left)
+    }
 
-    noButton.style.top = top + "px"
-    noButton.style.left = left + "px"
+    console.log({"top": top+"px", "left": left+"px"})
+    $("#no-button").css({"top": top+"px", "left": left+"px"})
 
     counter++
 
-    if (counter % 2 == 0) {
+    if (counter % 200 == 0) {
       $("#question-container").hide();
       $("#no-container h1").html(
         "How many times are we going to do this?" + "<br>" +
