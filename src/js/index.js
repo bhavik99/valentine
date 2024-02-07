@@ -7,63 +7,62 @@ const getRandomNumber = (num) => {
   return val;
 };
 
-function addListenerMulti(element, eventNames, listener) {
-  var events = eventNames.split(' ');
-  for (var i=0, iLen=events.length; i<iLen; i++) {
-    element.addEventListener(events[i], listener, false);
-  }
+function getNumberFromDimension(dimension){
+  return parseInt(dimension.split("px")[0])
 }
 
 let counter = 0
 const countdownDate = new Date("February 17, 2024 00:00:00").getTime();
 
 document.addEventListener("DOMContentLoaded", function () {
-  const body = document.body
-  const questionContainer = document.getElementById("question-container");
-  const noButton = document.getElementById("no-button");
-  const tryAgainButton = document.getElementById("try-again-button");
-  const yesButton = document.getElementById("yes-button");
+  const questionContainer = $("#question-container");
+  const noButton = $("#no-button")
+  const yesButton = $("#yes-button");
+  const noContainer = $("#no-container");
+  const tryAgainButton = $("#try-again-button");
+  const yesContainer = $("#yes-container");
+  const countdown = $("#countdown")
 
-  addListenerMulti(noButton, 'mouseover click', function () {
-    let top = getRandomNumber((window.innerHeight - questionContainer.offsetHeight) * 0.5);
-    if (parseInt(noButton.style.top.split("px")[0]) < 0){
-      top = Math.abs(top)
+  noButton.on('mouseover click', function () {
+    let top = getRandomNumber((window.innerHeight - (getNumberFromDimension(questionContainer.css("height"))))/2)*0.5;
+    if (getNumberFromDimension(noButton.css("top")) < 0){
+      top = Math.abs(top) + getNumberFromDimension(questionContainer.css("height"))/2
     } else {
-      top = -Math.abs(top)
+      top = -Math.abs(top) - getNumberFromDimension(questionContainer.css("height"))/2
     }
-    let left = getRandomNumber((window.innerWidth - questionContainer.offsetWidth) * 0.5);
-    if (parseInt(noButton.style.left.split("px")[0]) < 0){
-      left = Math.abs(left)
+    let left = getRandomNumber((window.innerWidth - (getNumberFromDimension(questionContainer.css("width"))))/2)*0.5;
+    if (getNumberFromDimension(noButton.css("left")) < 0){
+      left = Math.abs(left) + getNumberFromDimension(questionContainer.css("width"))/2
     } else {
-      left = -Math.abs(left)
+      left = -Math.abs(left) - getNumberFromDimension(questionContainer.css("width"))/2
     }
 
-    console.log({"top": top+"px", "left": left+"px"})
-    $("#no-button").css({"top": top+"px", "left": left+"px"})
+    noButton.css({"top": top+"px", "left": left+"px"})
+    yesButton.css({"height": (getNumberFromDimension(yesButton.css("height"))*1.1)+"px", "width": (getNumberFromDimension(yesButton.css("width"))*1.1)+"px"})
 
     counter++
 
-    if (counter % 200 == 0) {
-      $("#question-container").hide();
+    if (counter % 5 == 0) {
+      questionContainer.hide();
       $("#no-container h1").html(
         "How many times are we going to do this?" + "<br>" +
         "You've tried clicking it " + counter + " times already" + "<br>" +
         "It's not going to work my love! You can't say no to me :)")
-      $("#no-container").delay(500).show();
+      noContainer.delay(500).show();
     }
 
     console.log(counter)
   });
 
-  tryAgainButton.addEventListener("click", function () {
-    $("#no-container").hide();
-    $("#question-container").delay(500).show();
+  tryAgainButton.on("click", function () {
+    noContainer.hide();
+    questionContainer.delay(500).show();
   });
 
-  yesButton.addEventListener("click", function () {
+  yesButton.on("click", function () {
     console.log("yes clicked");
-    $("#question-container").hide();
-    $("#yes-container").show();
+    questionContainer.hide();
+    yesContainer.show();
 
     const x = setInterval(function () {
       const now = new Date().getTime();
@@ -74,11 +73,11 @@ document.addEventListener("DOMContentLoaded", function () {
       const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
       const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
 
-      $("#countdown").html(days + "d " + hours + "h " + minutes + "m " + seconds + "s ");
+     countdown.html(days + "d " + hours + "h " + minutes + "m " + seconds + "s ");
 
       if (timeLeft < 0) {
         clearInterval(x);
-        $("#countdown").html("THE VALENTINE GETAWAY IS TODAY!");
+       countdown.html("THE VALENTINE GETAWAY IS TODAY!");
       }
     }, 1000);
   });
