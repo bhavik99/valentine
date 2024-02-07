@@ -2,7 +2,6 @@ body {
   margin: 0;
   display: flex;
   align-items: center;
-  width: fit-content;
 }
 
 #question-container {
@@ -27,6 +26,10 @@ button {
 
 #no-button {
   position: relative;
+}
+
+#yes-button {
+  cursor: url('../assets/cursor.jpeg'),auto;
 }
 
 #no-container {
