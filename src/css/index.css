@@ -32,7 +32,7 @@ button {
 }
 
 #yes-button {
-  cursor: url('../assets/happy-cursor.jpeg'),auto;
+  cursor: url('../assets/happy-cursor.jpeg'), auto;
 }
 
 #no-container {
@@ -55,4 +55,34 @@ button {
   transform: translate(-50%, -50%);
   text-align: center;
   transition: opacity 1s ease-out;
+}
+
+svg {
+  overflow: visible;
+  width: 20%
+}
+svg path#line {
+  fill: none;
+  stroke: #e00000;
+  stroke-width: 1;
+  stroke-linecap: butt;
+  stroke-linejoin: round;
+  stroke-miterlimit: 4;
+  stroke-dasharray:none;
+  stroke-opacity: 1;
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  animation: dash 3s linear infinite;
+}
+
+@keyframes dash {
+  0% {
+    stroke-dashoffset: 1;
+  }
+  80% {
+    stroke-dashoffset: 0;
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
 }
