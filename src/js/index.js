@@ -137,91 +137,105 @@ document.addEventListener("DOMContentLoaded", function () {
         congrats.html("let's tell you where we're going then...")
 
         setTimeout(function () {
-          congrats.hide()
-          wait.show();
+          congrats.html("but would that be much of a surprise my love?")
 
           setTimeout(function () {
-            wait.hide()
-            door.show()
+            congrats.html("but i love you too much to not tell you so...")
 
-            doorTop.click(function () {
-              doorKnockSound.play()
-              doorKnockSound.currentTime = 0;
-              counter++
+            setTimeout(function () {
+              congrats.html("are you excited?")
 
-              if (counter == 3) {
+              setTimeout(function () {
+                congrats.html("okay enough mwah, I love you x")
+
                 setTimeout(function () {
-                  countdown.html("you thought it'd be that easy to find out what we're doing?");
-                  countdown.show()
+                  congrats.hide()
 
                   setTimeout(function () {
-                    setInterval(function () {
-                      const now = new Date().getTime();
-                      const timeLeft = countdownDate - now;
+                    door.show()
 
-                      const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
-                      const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                      const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
-                      const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
-                      countdown.html(days + "d " + hours + "h " + minutes + "m " + seconds + "s ");
-                    }, 1000)
-                  }, 3000)
-                }, 1000)
-              }
-            })
+                    doorTop.click(function () {
+                      doorKnockSound.play()
+                      doorKnockSound.currentTime = 0;
+                      counter++
 
-            doorBottom.click(function () {
-              doorKickSound.play()
-              doorKickSound.currentTime = 0;
-              counter++
+                      if (counter == 3) {
+                        setTimeout(function () {
+                          countdown.html("sike");
+                          countdown.show()
 
-              if (counter == 3) {
-                setTimeout(function () {
-                  countdown.html("you thought it'd be that easy to find out what we're doing?");
-                  countdown.show()
+                          setTimeout(function () {
+                            setInterval(function () {
+                              const now = new Date().getTime();
+                              const timeLeft = countdownDate - now;
 
-                  setTimeout(function () {
-                    setInterval(function () {
-                      const now = new Date().getTime();
-                      const timeLeft = countdownDate - now;
+                              const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+                              const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                              const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+                              const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+                              countdown.html(days + "d " + hours + "h " + minutes + "m " + seconds + "s ");
+                            }, 1000)
+                          }, 3000)
+                        }, 1000)
+                      }
+                    })
 
-                      const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
-                      const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                      const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
-                      const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
-                      countdown.html(days + "d " + hours + "h " + minutes + "m " + seconds + "s ");
-                    }, 1000)
-                  }, 3000)
-                }, 1000)
-              }
-            })
+                    doorBottom.click(function () {
+                      doorKickSound.play()
+                      doorKickSound.currentTime = 0;
+                      counter++
 
-            knob.click(function () {
-              doorClosedSound.play()
-              doorClosedSound.currentTime = 0;
-              counter++
+                      if (counter == 3) {
+                        setTimeout(function () {
+                          countdown.html("sike");
+                          countdown.show()
 
-              if (counter == 3) {
-                setTimeout(function () {
-                  countdown.html("you thought it'd be that easy to find out what we're doing?");
-                  countdown.show()
+                          setTimeout(function () {
+                            setInterval(function () {
+                              const now = new Date().getTime();
+                              const timeLeft = countdownDate - now;
 
-                  setTimeout(function () {
-                    setInterval(function () {
-                      const now = new Date().getTime();
-                      const timeLeft = countdownDate - now;
+                              const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+                              const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                              const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+                              const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+                              countdown.html(days + "d " + hours + "h " + minutes + "m " + seconds + "s ");
+                            }, 1000)
+                          }, 3000)
+                        }, 1000)
+                      }
+                    })
 
-                      const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
-                      const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                      const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
-                      const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
-                      countdown.html(days + "d " + hours + "h " + minutes + "m " + seconds + "s ");
-                    }, 1000)
-                  }, 3000)
-                }, 1000)
-              }
-            })
-          }, 3000);
+                    knob.click(function () {
+                      doorClosedSound.play()
+                      doorClosedSound.currentTime = 0;
+                      counter++
+
+                      if (counter == 3) {
+                        setTimeout(function () {
+                          countdown.html("sike");
+                          countdown.show()
+
+                          setTimeout(function () {
+                            setInterval(function () {
+                              const now = new Date().getTime();
+                              const timeLeft = countdownDate - now;
+
+                              const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+                              const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                              const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+                              const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+                              countdown.html(days + "d " + hours + "h " + minutes + "m " + seconds + "s ");
+                            }, 1000)
+                          }, 3000)
+                        }, 1000)
+                      }
+                    })
+                  }, 3000);
+                }, 4000)
+              }, 3000)
+            }, 3000)
+          }, 3000)
         }, 3000)
       }, 3000)
     }
