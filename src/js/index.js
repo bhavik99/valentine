@@ -12,8 +12,7 @@ function getNumberFromDimension(dimension) {
 }
 
 let counter = 0
-const countdownDate = new Date("February 17, 2024 00:00:00").getTime();
-// https://codepen.io/TANA28/pen/zYbLBLe
+
 document.addEventListener("DOMContentLoaded", function () {
   const questionContainer = $("#question-container");
   const noButton = $("#no-button")
@@ -24,8 +23,17 @@ document.addEventListener("DOMContentLoaded", function () {
   const yesContainer = $("#yes-container");
   const countdown = $("#yes-container #countdown")
   const congrats = $("#yes-container #congratulations")
+  const congrats2 = $("#yes-container #congratulations2")
   const wait = $("#yes-container #wait")
   const heartbeat = $("#yes-container svg")
+  const door = $("#yes-container .door")
+  const doorTop = $("#yes-container .door-top")
+  const doorBottom = $("#yes-container .door-bottom")
+  const knob = $("#yes-container .knob")
+  const doorClosedSound = $("#doorlockedsound")[0]
+  const doorKnockSound = $("#doorknocksound")[0]
+  const doorKickSound = $("#doorkicksound")[0]
+  const doorOpenSound = $("#dooropensound")[0]
 
   noButton.on('mouseover click', function () {
     let top = getRandomNumber((window.innerHeight - (getNumberFromDimension(questionContainer.css("height")))) / 2) * 0.5;
@@ -63,43 +71,169 @@ document.addEventListener("DOMContentLoaded", function () {
     questionContainer.delay(500).show();
   });
 
+  const countdownDate = new Date("February 19, 2024 00:00:00").getTime();
+
   yesButton.on("click", function () {
+    counter = 0
+    const now = new Date().getTime();
+    const timeLeft = countdownDate - now;
+
     console.log("yes clicked");
     questionContainer.hide();
 
     yesContainer.show();
-    congrats.show();
+
+    congrats.hide();
+    congrats2.hide();
     wait.hide();
+    door.hide();
     countdown.hide();
     heartbeat.hide();
 
-    x = setTimeout(function () {
-      congrats.hide();
-      wait.show();
-      countdown.hide();
-      heartbeat.hide();
-    }, 3000);
+    if (timeLeft < 0) {
+      congrats2.show();
+      setTimeout(function () {
+        congrats2.hide()
+        countdown.html("You may now enter the world of magic");
+        door.show()
 
-    x = setTimeout(function () {
-      congrats.hide();
-      wait.hide();
-      const now = new Date().getTime();
-      const timeLeft = countdownDate - now;
+        doorTop.click(function () {
+          doorKnockSound.play()
+          doorKnockSound.currentTime = 0;
 
-      const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
-      const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-      const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
-      const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+          setTimeout(function () {
+            doorOpenSound.play();
+            doorOpenSound.currentTime = 0;
+            $(".door-front").css({ "transform": "rotateY(-160deg)" });
+          }, 2000)
 
-      countdown.html(days + "d " + hours + "h " + minutes + "m " + seconds + "s ");
+        })
 
-      if (timeLeft < 0) {
-        clearInterval(x);
-        countdown.html("THE VALENTINE GETAWAY IS TODAY!");
-      }
+        doorBottom.click(function () {
+          doorKickSound.play()
+          doorKickSound.currentTime = 0;
 
-      countdown.show();
-      heartbeat.show();
-    }, 10000);
+          setTimeout(function () {
+            doorOpenSound.play();
+            doorOpenSound.currentTime = 0;
+            $(".door-front").css({ "transform": "rotateY(-160deg)" });
+          }, 4000)
+
+        })
+
+        knob.click(function () {
+          doorOpenSound.play();
+          doorOpenSound.currentTime = 0;
+          $(".door-front").css({ "transform": "rotateY(-160deg)" });
+        })
+
+        door.mouseleave(function () {
+          $(".door-front").css({ "transform": "rotateY(0)" });
+        })
+      }, 3000)
+    } else {
+      congrats.show()
+      setTimeout(function () {
+        congrats.html("let's tell you where we're going then...")
+
+        setTimeout(function () {
+          congrats.hide()
+          wait.show();
+
+          setTimeout(function () {
+            wait.hide()
+            door.show()
+
+            doorTop.click(function () {
+              doorKnockSound.play()
+              doorKnockSound.currentTime = 0;
+              counter++
+
+              if (counter == 3) {
+                setTimeout(function () {
+                  countdown.html("you thought it'd be that easy to find out what we're doing?");
+                  countdown.show()
+
+                  setTimeout(function () {
+                    setInterval(function () {
+                      const now = new Date().getTime();
+                      const timeLeft = countdownDate - now;
+
+                      const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+                      const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                      const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+                      const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+                      countdown.html(days + "d " + hours + "h " + minutes + "m " + seconds + "s ");
+                    }, 1000)
+                  }, 3000)
+                }, 1000)
+              }
+            })
+
+            doorBottom.click(function () {
+              doorKickSound.play()
+              doorKickSound.currentTime = 0;
+              counter++
+
+              if (counter == 3) {
+                setTimeout(function () {
+                  countdown.html("you thought it'd be that easy to find out what we're doing?");
+                  countdown.show()
+
+                  setTimeout(function () {
+                    setInterval(function () {
+                      const now = new Date().getTime();
+                      const timeLeft = countdownDate - now;
+
+                      const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+                      const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                      const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+                      const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+                      countdown.html(days + "d " + hours + "h " + minutes + "m " + seconds + "s ");
+                    }, 1000)
+                  }, 3000)
+                }, 1000)
+              }
+            })
+
+            knob.click(function () {
+              doorClosedSound.play()
+              doorClosedSound.currentTime = 0;
+              counter++
+
+              if (counter == 3) {
+                setTimeout(function () {
+                  countdown.html("you thought it'd be that easy to find out what we're doing?");
+                  countdown.show()
+
+                  setTimeout(function () {
+                    setInterval(function () {
+                      const now = new Date().getTime();
+                      const timeLeft = countdownDate - now;
+
+                      const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+                      const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                      const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+                      const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+                      countdown.html(days + "d " + hours + "h " + minutes + "m " + seconds + "s ");
+                    }, 1000)
+                  }, 3000)
+                }, 1000)
+              }
+            })
+          }, 3000);
+        }, 3000)
+      }, 3000)
+    }
+
+
+
+
+
+
+
+
+
+
   });
 });
