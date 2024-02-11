@@ -5,16 +5,29 @@ body {
   overflow: hidden;
   height: 100vh;
   width: 100vw;
-  font-family: "Courier New", Courier, monospace;
+  font-family: courier, monospace;
   font-size: 18px;
   letter-spacing: 6px;
   word-spacing: 6px;
-  color: #000000;
+  color: white;
   font-weight: 400;
-  text-decoration: none solid rgb(68, 68, 68);
   font-style: normal;
   font-variant: small-caps;
   text-transform: none;
+  background:
+    radial-gradient(circle closest-side at 60% 43%, #694343 26%, rgba(187, 0, 51, 0) 27%),
+    radial-gradient(circle closest-side at 40% 43%, #694343 26%, rgba(187, 0, 51, 0) 27%),
+    radial-gradient(circle closest-side at 40% 22%, #3f2828 45%, rgba(221, 51, 85, 0) 46%),
+    radial-gradient(circle closest-side at 60% 22%, #3f2828 45%, rgba(221, 51, 85, 0) 46%),
+    radial-gradient(circle closest-side at 50% 35%, #3f2828 30%, rgba(221, 51, 85, 0) 31%),
+
+    radial-gradient(circle closest-side at 60% 43%, #694343 26%, rgba(187, 0, 51, 0) 27%) 50px 50px,
+    radial-gradient(circle closest-side at 40% 43%, #694343 26%, rgba(187, 0, 51, 0) 27%) 50px 50px,
+    radial-gradient(circle closest-side at 40% 22%, #342121 45%, rgba(221, 51, 85, 0) 46%) 50px 50px,
+    radial-gradient(circle closest-side at 60% 22%, #342121 45%, rgba(221, 51, 85, 0) 46%) 50px 50px,
+    radial-gradient(circle closest-side at 50% 35%, #342121 30%, rgba(221, 51, 85, 0) 31%) 50px 50px;
+  background-color: #694343;
+  background-size: 100px 100px;
 }
 
 #question-container {
@@ -29,9 +42,19 @@ body {
 
 button {
   border: none;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 12px;
+  letter-spacing: 6px;
+  word-spacing: 6px;
+  color: black;
+  font-weight: 400;
+  font-style: normal;
+  text-transform: lowercase;
+  margin: 10px;
+  border-radius: 10px;
   height: 50px;
   width: 100px;
-  box-shadow: 1px 1px 5px black;
+  box-shadow: 0px 0px 40px black;
   background-color: white;
   padding: 5px;
   margin: 15px;
@@ -189,19 +212,33 @@ svg path#line {
   width: 0;
   animation: typing 1.5s steps(30, end) forwards, blinking 1s infinite;
 }
-  
+
 @keyframes typing {
-  from { width: 0 }
-  to { width: 100% }
+  from {
+    width: 0
+  }
+
+  to {
+    width: 100%
+  }
 }
 
 @keyframes blinking {
-  0% {border-color: transparent}
-  50% {border-color: black}
-  100% {border-color: transparent}
+  0% {
+    border-color: transparent
+  }
+
+  50% {
+    border-color: black
+  }
+
+  100% {
+    border-color: transparent
+  }
 }
 
 h1 {
   width: auto;
   max-width: 80dvw;
+  text-shadow: 3px 3px #000;
 }
