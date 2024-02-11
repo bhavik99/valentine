@@ -38,6 +38,7 @@ body {
   text-align: center;
   transition: opacity 1s ease-out;
   max-width: 80dvw;
+  overflow-wrap: normal;
 }
 
 button {
