@@ -49,7 +49,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     noButton.css({ "top": top + "px", "left": left + "px" })
-    yesButton.css({ "height": (getNumberFromDimension(yesButton.css("height")) * 1.1) + "px", "width": (getNumberFromDimension(yesButton.css("width")) * 1.1) + "px" })
+    yesButton.css({ "height": (getNumberFromDimension(yesButton.css("height")) * 1.1) + "px", "width": (getNumberFromDimension(yesButton.css("width")) * 1.1) + "px", "font-size": (getNumberFromDimension(yesButton.css("font-size")) * 1.1) + "px" })
     noButton.css({ "height": (getNumberFromDimension(noButton.css("height")) * 0.95) + "px", "width": (getNumberFromDimension(noButton.css("width")) * 0.95) + "px" })
     counter++
 
@@ -143,19 +143,19 @@ document.addEventListener("DOMContentLoaded", function () {
       congrats.show()
 
       setTimeout(function () {
-        congrats.removeClass("type", 1500, function () {
+        congrats.removeClass("type", 3000, function () {
           congrats.addClass("type")
         })
         congrats.html("let's tell you where we're going then...")
 
         setTimeout(function () {
-          congrats.removeClass("type", 1500, function () {
+          congrats.removeClass("type", 3000, function () {
             congrats.addClass("type")
           })
           congrats.html("but would that be much of a surprise my love?..")
 
           setTimeout(function () {
-            congrats.removeClass("type", 1500, function () {
+            congrats.removeClass("type", 3000, function () {
               congrats.addClass("type")
             })
             congrats.html("but i love you too much to not tell you so...")
@@ -265,7 +265,7 @@ document.addEventListener("DOMContentLoaded", function () {
                   }
                 })
               }, 3000);
-            }, 1000)
+            }, 2000)
           }, 3000)
         }, 3000)
       }, 3000)
