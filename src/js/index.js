@@ -37,36 +37,40 @@ document.addEventListener("DOMContentLoaded", function () {
   noButton.on('mouseover click', function () {
     let top = getRandomNumber((window.innerHeight - (getNumberFromDimension(questionContainer.css("height")))) / 2) * 0.5;
     if (getNumberFromDimension(noButton.css("top")) < 0) {
-      top = Math.abs(top) + getNumberFromDimension(questionContainer.css("height")) / 2
+      top = Math.abs(top) + getNumberFromDimension(yesButton.css("height"))
     } else {
-      top = -Math.abs(top) - getNumberFromDimension(questionContainer.css("height")) / 2
+      top = -Math.abs(top) - getNumberFromDimension(yesButton.css("height"))
     }
     let left = getRandomNumber((window.innerWidth - (getNumberFromDimension(questionContainer.css("width")))) / 2) * 0.5;
     if (getNumberFromDimension(noButton.css("left")) < 0) {
-      left = Math.abs(left) + getNumberFromDimension(questionContainer.css("width")) / 2
+      left = Math.abs(left) + getNumberFromDimension(yesButton.css("width"))
     } else {
-      left = -Math.abs(left) - getNumberFromDimension(questionContainer.css("width")) / 2
+      left = -Math.abs(left) - getNumberFromDimension(yesButton.css("width"))
     }
 
     noButton.css({ "top": top + "px", "left": left + "px" })
-    yesButton.css({ "height": (getNumberFromDimension(yesButton.css("height")) * 1.1) + "px", "width": (getNumberFromDimension(yesButton.css("width")) * 1.1) + "px" })
-
+    yesButton.css({ "height": (getNumberFromDimension(yesButton.css("height")) * 1.1) + "px", "width": (getNumberFromDimension(yesButton.css("width")) * 1.1) + "px", "font-size": (getNumberFromDimension(yesButton.css("font-size")) * 1.1) + "px" })
+    noButton.css({ "height": (getNumberFromDimension(noButton.css("height")) * 0.95) + "px", "width": (getNumberFromDimension(noButton.css("width")) * 0.95) + "px" })
     counter++
 
-    if (counter == 5) {
+    if (counter == 3) {
+      $("#no-container img").attr("src", "./src/assets/pics/"+counter/3+".jpeg")
       $("#no-container h1").html("How many times are we going to try say no?")
-    } else if (counter == 10) {
+    } else if (counter == 6) {
+      $("#no-container img").attr("src", "./src/assets/pics/"+counter/3+".jpeg")
       $("#no-container h1").html("Okay i'll keep count now since you want to continue, we're upto " + counter + " attempts")
-    } else if (counter == 15) {
-      $("#no-container h1").html("I really thought you'd give up by now, for sure you just like chasing the button, we're upto " + counter + " attempts")
-    } else if (counter == 20) {
-      $("#no-container h1").html("You have fun trying to click it my love, but kudos for trying still, so I'll tell you how to do it<br><br>P.S. Maybe you need to inspect this element?")
-      console.log("well done for finding this, but lol I won't tell you xx")
+    } else if (counter == 9) {
+      $("#no-container img").attr("src", "./src/assets/pics/"+counter/3+".jpeg")
+      $("#no-container h1").html("I really thought you'd give up by now, you just really like chasing the button, upto " + counter + " tries")
+    } else if (counter == 12) {
+      $("#no-container img").attr("src", "./src/assets/pics/"+counter/3+".jpeg")
+      $("#no-container h1").html("You having fun trying to click it "+ counter +" times my love?<br><br>Do you did want to know how to?I'll tell you<br><br>P.S. Maybe you need to inspect this element?")
+      console.log("well done for finding this, but I'm not telling you xx")
     }
 
-    if (counter % 5 == 0) {
+    if (counter % 3 == 0) {
       questionContainer.hide();
-      tryAgainButton.css({ "height": (getNumberFromDimension(tryAgainButton.css("height")) * 1+(counter/100)) + "px", "width": (getNumberFromDimension(tryAgainButton.css("width")) * 1+(counter/100)) + "px" })
+      tryAgainButton.css({ "height": (getNumberFromDimension(tryAgainButton.css("height")) * 1 + (counter / 100)) + "px", "width": (getNumberFromDimension(tryAgainButton.css("width")) * 1 + (counter / 100)) + "px" })
       noContainer.delay(500).show();
     }
   });
@@ -139,19 +143,19 @@ document.addEventListener("DOMContentLoaded", function () {
       congrats.show()
 
       setTimeout(function () {
-        congrats.removeClass("type", 1500, function () {
+        congrats.removeClass("type", 3000, function () {
           congrats.addClass("type")
         })
         congrats.html("let's tell you where we're going then...")
 
         setTimeout(function () {
-          congrats.removeClass("type", 1500, function () {
+          congrats.removeClass("type", 3000, function () {
             congrats.addClass("type")
           })
           congrats.html("but would that be much of a surprise my love?..")
 
           setTimeout(function () {
-            congrats.removeClass("type", 1500, function () {
+            congrats.removeClass("type", 3000, function () {
               congrats.addClass("type")
             })
             congrats.html("but i love you too much to not tell you so...")
@@ -169,11 +173,19 @@ document.addEventListener("DOMContentLoaded", function () {
 
                   if (counter == 3) {
                     setTimeout(function () {
+                      countdown.removeClass("type", 1500, function () {
+                        countdown.addClass("type")
+                      })
                       countdown.html("sike");
                       countdown.show()
 
                       setTimeout(function () {
+                        countdown.hide()
+                        countdown.removeClass("type", 2000, function () {
+                          countdown.addClass("type")
+                        })
                         setInterval(function () {
+                          countdown.show()
                           const now = new Date().getTime();
                           const timeLeft = countdownDate - now;
 
@@ -195,6 +207,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
                   if (counter == 3) {
                     setTimeout(function () {
+
+                      countdown.removeClass("type", 1500, function () {
+                        countdown.addClass("type")
+                      })
                       countdown.html("sike");
                       countdown.show()
 
@@ -207,6 +223,9 @@ document.addEventListener("DOMContentLoaded", function () {
                           const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
                           const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
                           const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+                          countdown.removeClass("type", 1500, function () {
+                            countdown.addClass("type")
+                          })
                           countdown.html(days + "d " + hours + "h " + minutes + "m " + seconds + "s ");
                         }, 1000)
                       }, 3000)
@@ -221,6 +240,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
                   if (counter == 3) {
                     setTimeout(function () {
+                      countdown.removeClass("type", 1500, function () {
+                        countdown.addClass("type")
+                      })
                       countdown.html("sike");
                       countdown.show()
 
@@ -233,6 +255,9 @@ document.addEventListener("DOMContentLoaded", function () {
                           const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
                           const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
                           const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+                          countdown.removeClass("type", 1500, function () {
+                            countdown.addClass("type")
+                          })
                           countdown.html(days + "d " + hours + "h " + minutes + "m " + seconds + "s ");
                         }, 1000)
                       }, 3000)
@@ -240,20 +265,10 @@ document.addEventListener("DOMContentLoaded", function () {
                   }
                 })
               }, 3000);
-            }, 3000)
+            }, 2000)
           }, 3000)
         }, 3000)
       }, 3000)
     }
-
-
-
-
-
-
-
-
-
-
   });
 });
