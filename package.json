@@ -31,5 +31,7 @@
     "babel-preset-env": "^1.7.0",
     "live-server": "^1.2.1"
   },
-  "dependencies": {}
+  "dependencies": {
+    "jquery-ui": "^1.13.2"
+  }
 }
