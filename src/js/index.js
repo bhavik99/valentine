@@ -54,13 +54,17 @@ document.addEventListener("DOMContentLoaded", function () {
     counter++
 
     if (counter == 3) {
+      $("#no-container img").attr("src", "./src/assets/pics/"+counter/3+".jpeg")
       $("#no-container h1").html("How many times are we going to try say no?")
     } else if (counter == 6) {
+      $("#no-container img").attr("src", "./src/assets/pics/"+counter/3+".jpeg")
       $("#no-container h1").html("Okay i'll keep count now since you want to continue, we're upto " + counter + " attempts")
     } else if (counter == 9) {
+      $("#no-container img").attr("src", "./src/assets/pics/"+counter/3+".jpeg")
       $("#no-container h1").html("I really thought you'd give up by now, you just really like chasing the button, upto " + counter + " tries")
     } else if (counter == 12) {
-      $("#no-container h1").html("You having fun trying to click it "+ counter +" times my love?<br><br>Do you did want to know how to, I'll tell you<br><br>P.S. Maybe you need to inspect this element?")
+      $("#no-container img").attr("src", "./src/assets/pics/"+counter/3+".jpeg")
+      $("#no-container h1").html("You having fun trying to click it "+ counter +" times my love?<br><br>Do you did want to know how to?I'll tell you<br><br>P.S. Maybe you need to inspect this element?")
       console.log("well done for finding this, but I'm not telling you xx")
     }
 

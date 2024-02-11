@@ -79,6 +79,10 @@ button {
   max-width: 80dvw;
 }
 
+#no-container img{
+  width: 30%
+}
+
 #yes-container {
   display: none;
   position: absolute;
