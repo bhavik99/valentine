@@ -6,15 +6,15 @@ body {
   height: 100vh;
   width: 100vw;
   font-family: "Courier New", Courier, monospace;
-font-size: 18px;
-letter-spacing: 6px;
-word-spacing: 6px;
-color: #000000;
-font-weight: 400;
-text-decoration: none solid rgb(68, 68, 68);
-font-style: normal;
-font-variant: small-caps;
-text-transform: none;
+  font-size: 18px;
+  letter-spacing: 6px;
+  word-spacing: 6px;
+  color: #000000;
+  font-weight: 400;
+  text-decoration: none solid rgb(68, 68, 68);
+  font-style: normal;
+  font-variant: small-caps;
+  text-transform: none;
 }
 
 #question-container {
@@ -24,6 +24,7 @@ text-transform: none;
   transform: translate(-50%, -50%);
   text-align: center;
   transition: opacity 1s ease-out;
+  max-width: 80dvw;
 }
 
 button {
@@ -52,6 +53,7 @@ button {
   transform: translate(-50%, -50%);
   text-align: center;
   transition: opacity 1s ease-out;
+  max-width: 80dvw;
 }
 
 #yes-container {
@@ -62,6 +64,7 @@ button {
   transform: translate(-50%, -50%);
   text-align: center;
   transition: opacity 1s ease-out;
+  max-width: 80dvw;
 }
 
 svg {
@@ -106,7 +109,6 @@ svg path#line {
   margin-bottom: 1%;
   transform-style: preserve-3d;
   transform: perspective(2500px);
-
 }
 
 .door-front {
@@ -197,4 +199,9 @@ svg path#line {
   0% {border-color: transparent}
   50% {border-color: black}
   100% {border-color: transparent}
+}
+
+h1 {
+  width: auto;
+  max-width: 80dvw;
 }

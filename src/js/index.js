@@ -66,7 +66,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     if (counter % 5 == 0) {
       questionContainer.hide();
-      tryAgainButton.css({ "height": (getNumberFromDimension(tryAgainButton.css("height")) * 1+(counter/100)) + "px", "width": (getNumberFromDimension(tryAgainButton.css("width")) * 1+(counter/100)) + "px" })
+      tryAgainButton.css({ "height": (getNumberFromDimension(tryAgainButton.css("height")) * 1 + (counter / 100)) + "px", "width": (getNumberFromDimension(tryAgainButton.css("width")) * 1 + (counter / 100)) + "px" })
       noContainer.delay(500).show();
     }
   });
@@ -169,11 +169,19 @@ document.addEventListener("DOMContentLoaded", function () {
 
                   if (counter == 3) {
                     setTimeout(function () {
+                      countdown.removeClass("type", 1500, function () {
+                        countdown.addClass("type")
+                      })
                       countdown.html("sike");
                       countdown.show()
 
                       setTimeout(function () {
+                        countdown.hide()
+                        countdown.removeClass("type", 2000, function () {
+                          countdown.addClass("type")
+                        })
                         setInterval(function () {
+                          countdown.show()
                           const now = new Date().getTime();
                           const timeLeft = countdownDate - now;
 
@@ -195,6 +203,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
                   if (counter == 3) {
                     setTimeout(function () {
+
+                      countdown.removeClass("type", 1500, function () {
+                        countdown.addClass("type")
+                      })
                       countdown.html("sike");
                       countdown.show()
 
@@ -207,6 +219,9 @@ document.addEventListener("DOMContentLoaded", function () {
                           const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
                           const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
                           const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+                          countdown.removeClass("type", 1500, function () {
+                            countdown.addClass("type")
+                          })
                           countdown.html(days + "d " + hours + "h " + minutes + "m " + seconds + "s ");
                         }, 1000)
                       }, 3000)
@@ -221,6 +236,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
                   if (counter == 3) {
                     setTimeout(function () {
+                      countdown.removeClass("type", 1500, function () {
+                        countdown.addClass("type")
+                      })
                       countdown.html("sike");
                       countdown.show()
 
@@ -233,6 +251,9 @@ document.addEventListener("DOMContentLoaded", function () {
                           const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
                           const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
                           const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+                          countdown.removeClass("type", 1500, function () {
+                            countdown.addClass("type")
+                          })
                           countdown.html(days + "d " + hours + "h " + minutes + "m " + seconds + "s ");
                         }, 1000)
                       }, 3000)
@@ -240,7 +261,7 @@ document.addEventListener("DOMContentLoaded", function () {
                   }
                 })
               }, 3000);
-            }, 3000)
+            }, 1000)
           }, 3000)
         }, 3000)
       }, 3000)
