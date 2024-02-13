@@ -80,13 +80,13 @@ label:hover {
 }
 
 .answer--yes {
-	background-image: url('https://i.pinimg.com/originals/26/67/52/266752f852c44959006c7dac91f74864.gif');
+	background-image: url('https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExdzkwbTB5ZmRtd2x2ZmdjbjlxOGMwcThlMWNjMzljcWVzdW5ybmNhdSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/W8krmZSDxPIfm/giphy.gif');
 	background-repeat:no-repeat;
 	background-size: cover;
 }
 
 .answer--no {
-	background-image: url('https://i.gifer.com/2yOW.gif');
+	background-image: url('https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExbGJ4c3Noemh0YXN0bzhmeHB1cXdsaHp3Z3hoYmlhNGZ5cXlqcXdmcCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/wfS4vDyVsASQygl4mN/giphy.gif');
 	background-repeat:no-repeat;
 	background-size: cover;
 }
