@@ -13,7 +13,7 @@ radial-gradient(circle closest-side at 60% 22%, #3c3c3c 45%, rgba(221,51,85,0) 4
 radial-gradient(circle closest-side at 50% 35%, #3c3c3c 30%, rgba(221,51,85,0) 31%) 50px 50px;
 	background-color:#323232;
 	background-size:100px 100px;
-	font-family: 'Lato', sans-serif;
+  font-family: 'Verdana', 'Sans-serif';
 }
 
 /*
@@ -30,6 +30,7 @@ Valentine's Pen
 	color: #FFFFFF;
 	font-size: 3em;
 	font-weight: bold;
+  font-family: 'Snell Roundhand', 'cursive';
 }
 
  input[type=checkbox]{
@@ -49,6 +50,7 @@ label {
 	line-height: 1.5em;
 	text-transform: uppercase;
 	transition: all .25s ease-in-out;
+  border-radius: 20px;
 }
 
 label:hover {
@@ -78,13 +80,13 @@ label:hover {
 }
 
 .answer--yes {
-	background-image: url('https://media1.tenor.com/m/w_xkJNZpzhgAAAAd/goofy.gif');
+	background-image: url('https://i.pinimg.com/originals/26/67/52/266752f852c44959006c7dac91f74864.gif');
 	background-repeat:no-repeat;
 	background-size: cover;
 }
 
 .answer--no {
-	background-image: url('http://arclegalfunding.org/wp-content/uploads/cat-sad-cat.gif.gif');
+	background-image: url('https://i.gifer.com/2yOW.gif');
 	background-repeat:no-repeat;
 	background-size: cover;
 }
