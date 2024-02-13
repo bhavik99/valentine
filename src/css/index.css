@@ -62,9 +62,10 @@ label:hover {
 }
 
 .yes {
-	background-color: #12D890;
+	background-color: #12b579;
   height: fit-content;
   font-size: 10.5em;
+  font-weight: bold;
 }
 
 .answer--yes, .answer--no {
