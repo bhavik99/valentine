@@ -83,7 +83,7 @@ document.addEventListener("DOMContentLoaded", function () {
     questionContainer.delay(500).show();
   });
 
-  const countdownDate = new Date("February 16, 2024 00:00:00").getTime();
+  const countdownDate = new Date("February 17, 2024 00:00:00").getTime();
 
   yesButton.on("click", function () {
     counter = 0
