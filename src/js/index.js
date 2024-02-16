@@ -118,7 +118,7 @@ document.addEventListener("DOMContentLoaded", function () {
           doorKnockSound.currentTime = 0;
           itsOpen.play()
           itsOpen.currentTime = 0;
-          countdown.show()
+          countdown.show();
         })
 
         doorBottom.click(function () {
