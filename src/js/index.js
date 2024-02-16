@@ -33,6 +33,9 @@ document.addEventListener("DOMContentLoaded", function () {
   const doorKnockSound = $("#doorknocksound")[0]
   const doorKickSound = $("#doorkicksound")[0]
   const doorOpenSound = $("#dooropensound")[0]
+  const itsOpen = $("#itsopen")[0]
+  const kisssound = $("#kisssound")[0]
+  const kissface = $("#kissface")
 
   noButton.on('mouseover click', function () {
     let top = getRandomNumber((window.innerHeight - (getNumberFromDimension(questionContainer.css("height")))) / 2) * 0.5;
@@ -80,7 +83,7 @@ document.addEventListener("DOMContentLoaded", function () {
     questionContainer.delay(500).show();
   });
 
-  const countdownDate = new Date("February 19, 2024 00:00:00").getTime();
+  const countdownDate = new Date("February 16, 2024 00:00:00").getTime();
 
   yesButton.on("click", function () {
     counter = 0
@@ -97,46 +100,52 @@ document.addEventListener("DOMContentLoaded", function () {
     door.hide();
     countdown.hide();
     heartbeat.hide();
+    kissface.hide();
 
     if (timeLeft < 0) {
       congrats2.show();
+      congrats2.removeClass("type", 3000, function () {
+        congrats2.addClass("type")
+      })
+
       setTimeout(function () {
         congrats2.hide()
-        countdown.html("You may now enter the world of magic");
+        countdown.html("You may now enter the world of wonder...");
         door.show()
 
         doorTop.click(function () {
           doorKnockSound.play()
           doorKnockSound.currentTime = 0;
-
-          setTimeout(function () {
-            doorOpenSound.play();
-            doorOpenSound.currentTime = 0;
-            $(".door-front").css({ "transform": "rotateY(-160deg)" });
-          }, 2000)
-
+          itsOpen.play()
+          itsOpen.currentTime = 0;
+          countdown.show()
         })
 
         doorBottom.click(function () {
           doorKickSound.play()
           doorKickSound.currentTime = 0;
-
-          setTimeout(function () {
-            doorOpenSound.play();
-            doorOpenSound.currentTime = 0;
-            $(".door-front").css({ "transform": "rotateY(-160deg)" });
-          }, 4000)
-
+          itsOpen.play()
+          itsOpen.currentTime = 0;
+          countdown.show()
         })
 
         knob.click(function () {
           doorOpenSound.play();
           doorOpenSound.currentTime = 0;
           $(".door-front").css({ "transform": "rotateY(-160deg)" });
-        })
 
-        door.mouseleave(function () {
-          $(".door-front").css({ "transform": "rotateY(0)" });
+          setTimeout(function () {
+            door.animate({zoom: "9000%"}, 4000, "swing");
+
+            setTimeout(function () {
+              countdown.hide();
+              door.hide();
+              kissface.show();
+              kissface.animate({ "width": "100%" }, 3000, "linear");
+              kisssound.play()
+              kisssound.currentTime = 0;
+            }, 1500)
+          }, 1500)
         })
       }, 3000)
     } else {

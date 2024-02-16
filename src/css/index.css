@@ -66,7 +66,7 @@ button {
 }
 
 #yes-button {
-  cursor: url('../assets/happy-cursor.jpeg'), auto;
+  cursor: url('../assets/pics/happy-cursor.jpeg'), auto;
 }
 
 #no-container {
@@ -93,6 +93,11 @@ button {
   text-align: center;
   transition: opacity 1s ease-out;
   max-width: 80dvw;
+}
+
+#kissface {
+	width: 1%;
+	cursor: url('../assets/pics/sanishakiss.jpeg'), auto;
 }
 
 svg {
